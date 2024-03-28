@@ -1,8 +1,11 @@
 import React from 'react'
 
-function AddToCart() {
+function AddToCart({cart,setCart,increaseQuantity}) {
+    const addQuantity=(product)=>{
+        increaseQuantity(product);
+    }
   return (
-    <button>AddToCart</button>
+    <button onClick={addQuantity}>AddToCart</button>
   )
 }
 

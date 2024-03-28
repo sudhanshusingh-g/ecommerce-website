@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 
-function ProductList() {
+function ProductList({cart,setCart,increaseQuantity}) {
   
 
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +33,9 @@ function ProductList() {
               title={product.title}
               price={product.price.value}
               image={product.images[0]}
+              cart={cart}
+              setCart={setCart}
+              increaseQuantity={increaseQuantity}
             />
           ))}
         </div>
