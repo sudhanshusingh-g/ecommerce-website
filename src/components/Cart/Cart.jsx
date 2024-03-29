@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import CartContext from "../../context/CartContext";
+import useWindowSize from "../../hooks/useWindowSize";
 
 function Cart() {
   const { cart } = useContext(CartContext);
   const cartList = Object.values(cart);
+  const windowSize=useWindowSize();
+  console.log(windowSize);
   const subTotal = cartList.reduce((total, item)=>{
     if (item) {
       return total + (item.price * item.quantity || 0);
