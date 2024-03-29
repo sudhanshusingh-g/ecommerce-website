@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 
-function ProductList({ cart, setCart, increaseQuantity,decreaseQuantity }) {
+function ProductList() {
   const [isLoading, setIsLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
 
@@ -29,10 +29,6 @@ function ProductList({ cart, setCart, increaseQuantity,decreaseQuantity }) {
             <ProductCard
               key={product.id}
               product={product}
-              cart={cart}
-              setCart={setCart}
-              increaseQuantity={increaseQuantity}
-              decreaseQuantity={decreaseQuantity}
             />
           ))}
         </div>

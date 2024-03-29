@@ -5,10 +5,6 @@ import Rating from "../Rating";
 function ProductCard({
   product,
   active,
-  cart,
-  setCart,
-  increaseQuantity,
-  decreaseQuantity,
 }) {
   return (
     <div className="productCard" style={{ color: `${active}` }}>
@@ -17,10 +13,6 @@ function ProductCard({
       {/* <img src={image} alt="" /> */}
       <Rating rating={product.rating.value} maxRating={5}/>
       <AddToCart
-        cart={cart}
-        setCart={setCart}
-        increaseQuantity={increaseQuantity}
-        decreaseQuantity={decreaseQuantity}
         product={product}
       />
     </div>
