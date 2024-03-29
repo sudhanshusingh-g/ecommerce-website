@@ -2,6 +2,7 @@ import "./App.css";
 import ProductList from "./components/ProductList";
 import { useState } from "react";
 import CartContext from "./context/CartContext";
+import Cart from "./components/Cart/Cart";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
   return (
     <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
       <div className="App">
+        <Cart/>
         <ProductList/>
       </div>
     </CartContext.Provider>
