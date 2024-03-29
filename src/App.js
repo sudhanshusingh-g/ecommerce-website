@@ -4,7 +4,6 @@ import { useState } from "react";
 import CartContext from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
 
-
 function App() {
   const [cart, setCart] = useState({});
 
@@ -29,13 +28,15 @@ function App() {
     if (newCart[product.id].quantity <= 0) {
       delete newCart[product.id];
     }
-    setCart(newCart)
+    setCart(newCart);
   };
+
+  const cartKeysLength = Object.keys(cart).length;
   return (
-    <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
+    <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
       <div className="App">
-        <Cart/>
-        <ProductList/>
+        {cartKeysLength > 0 ?<Cart />:null}
+        <ProductList />
       </div>
     </CartContext.Provider>
   );
