@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 
-function ProductList({cart,setCart,increaseQuantity}) {
-  
-
+function ProductList({ cart, setCart, increaseQuantity,decreaseQuantity }) {
   const [isLoading, setIsLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
-  
+
   useEffect(() => {
     fetch("https://602fc537a1e9d20017af105e.mockapi.io/api/v1//products")
       .then(function (response) {
         return response.json();
       })
-      .then((res)=>{
+      .then((res) => {
         setAllProducts(res);
         setIsLoading(false);
       });
-  });
+  }, []);
 
   return (
     <>
@@ -29,13 +27,12 @@ function ProductList({cart,setCart,increaseQuantity}) {
         <div>
           {allProducts.map((product) => (
             <ProductCard
-              key={product.title}
-              title={product.title}
-              price={product.price.value}
-              image={product.images[0]}
+              key={product.id}
+              product={product}
               cart={cart}
               setCart={setCart}
               increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
             />
           ))}
         </div>
