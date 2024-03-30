@@ -1,8 +1,9 @@
 import "./App.css";
-import ProductList from "./components/ProductList";
 import { useState } from "react";
 import CartContext from "./context/CartContext";
-import Cart from "./components/Cart/Cart";
+import Productpage from "./pages/ProductPage/Productpage";
+import { Route, Routes } from "react-router";
+import Cartpage from "./pages/CartPage/Cartpage";
 
 function App() {
   const [cart, setCart] = useState({});
@@ -31,13 +32,12 @@ function App() {
     setCart(newCart);
   };
 
-  const cartKeysLength = Object.keys(cart).length;
   return (
     <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity }}>
-      <div className="App">
-        {cartKeysLength > 0 ?<Cart />:null}
-        <ProductList />
-      </div>
+      <Routes>
+        <Route path="/" element={<Productpage />} />
+        <Route path="/cart" element={<Cartpage />} />
+      </Routes>
     </CartContext.Provider>
   );
 }

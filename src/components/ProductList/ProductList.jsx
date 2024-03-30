@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
+import { Link } from "react-router-dom";
 
 function ProductList() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ function ProductList() {
         />
       ) : (
         <div>
+          <Link to="/cart">Cart</Link>
           {allProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -37,4 +39,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default memo(ProductList);
