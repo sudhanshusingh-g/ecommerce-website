@@ -18,24 +18,23 @@ function ProductList() {
   }, []);
 
   return (
-    <>
+    <div className="h-full w-full flex items-center justify-center">
       {isLoading ? (
-        <img
-          src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif"
-          alt="Loading"
-        />
+        <div className="h-full w-full flex items-center justify-center absolute top-5">
+          <img
+            src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif"
+            alt="Loading"
+            width={100}
+          />
+        </div>
       ) : (
-        <div>
-          <Link to="/cart">Cart</Link>
+        <div className="w-full p-4 flex flex-wrap gap-2">
           {allProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

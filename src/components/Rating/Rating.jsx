@@ -5,7 +5,7 @@ import React from "react";
 import './Rating.css'
 function Rating({ rating, maxRating, size = 1 }) {
   return (
-    <div className="rating">
+    <div className="flex items-center gap-1">
       {new Array(maxRating).fill(0).map((_, index) => {
         const isActive = rating >= index + 1;
         return (
