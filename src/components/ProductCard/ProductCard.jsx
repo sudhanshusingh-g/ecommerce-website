@@ -11,7 +11,7 @@ function ProductCard({ product, active }) {
       <div className="w-full lg:w-40 mb-4 lg:mb-0">
         <img
           src={product.images[0]}
-          alt="Product image"
+          alt="Product"
           className="object-fill w-full h-auto lg:h-50"
         />
       </div>

@@ -86,7 +86,7 @@ function Cart() {
                       <div className="h-16 w-16">
                         <img
                           src={item.images[0]}
-                          alt="Product image"
+                          alt="Product"
                           className="h-full w-full object-cover rounded-md"
                         />
                       </div>
